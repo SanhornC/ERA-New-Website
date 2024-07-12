@@ -1,0 +1,102 @@
+.nav_services-container h2 {
+    margin-top: 100px;
+    text-align: center;
+    color: #212EA0;
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.nav_services-container p {
+    margin: 20px auto;
+    text-align: center;
+    font-size: 18px;
+    color: #000F38;
+}
+
+.nav_services-list {
+    margin: 20px auto;
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjust number of columns if needed */
+    gap: 10px;
+}
+
+.nav_services-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.3s;
+}
+
+.nav_services-list li a {
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    flex-grow: 1;
+}
+
+.nav_services-list li:hover {
+    background-color: #f9f9f9;
+}
+
+.nav_services-list li a:hover {
+    color: #212EA0;
+}
+
+
+.nav_service-details p {
+    padding: 0;
+}
+
+
+/* Modal Styles */
+.nav_Modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-color: none;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.nav_Modal h2 {
+    text-decoration: underline;
+    color: #212EA0;
+}
+
+.nav_popup_btn {
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    color: #212EA0;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav_popup_btn:hover {
+    background-color: #b9bee4;
+}
+
+
+.nav_Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}

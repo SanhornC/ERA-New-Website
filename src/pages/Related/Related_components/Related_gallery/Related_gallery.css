@@ -1,0 +1,28 @@
+.campus {
+    margin: 50px auto;
+    width: 90%;
+    display: flex;
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Disable vertical scrolling */
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+}
+
+.gallery {
+    display: flex; /* Change from grid to flexbox for horizontal alignment */
+    padding: 10px;
+}
+
+.gallery img {
+    width: auto; /* Maintain the image aspect ratio */
+    height: 300px; /* Set a fixed height for all images */
+    margin-right: 20px; /* Space between images */
+    object-fit: cover;
+}
+
+/* Media Query */
+@media (max-width: 800px) {
+    .gallery img {
+        height: 200px; /* Adjust height for smaller screens */
+    }
+}

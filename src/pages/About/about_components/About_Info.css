@@ -1,0 +1,21 @@
+.info_container {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+.info_container img {
+    width: 50%; 
+    height: auto;
+}
+
+.text_container {
+     width: 50%; /*Adjust the width as needed */
+    /* background-color: white; Background color for the text box */
+    border: none;
+    padding: 20px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); Optional: add some shadow for better appearance */
+    text-align: justify;
+    font-size: 20px;
+}

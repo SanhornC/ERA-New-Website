@@ -1,0 +1,52 @@
+
+.hero {
+    width: 100% ; 
+    min-height: 100vh;
+    background: linear-gradient(rgba(192, 188, 215, 0.7), rgba(192, 188, 215, 0.7)), url('../../../assets/hero.jpg'); /* 這個是放 image url 的位置 */
+    background-size:cover;
+    background-position: center;
+    color: rgba(81, 81, 84, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text {
+    text-align: center;
+    max-width: 800px;
+}
+
+.hero-text h1 {
+    font-size: 70px;
+    font-weight: 600;
+}
+
+.hero-text p {
+    max-width: 700px;
+    margin: 0px auto 30px; /* top, left-right, button */
+    line-height: 1.4;
+    font-size: 20px;
+}
+
+
+/* Media Query */
+
+@media (max-width: 850px) {
+    .hero-text h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 650) {
+    .hero-text h1 {
+        font-size: 30px;
+        max-width: 40px;
+        margin: auto;
+    }
+
+    .hero-text p {
+        font-size: 14px;
+        margin: 15px auto 30px;
+    }
+
+}

@@ -1,0 +1,43 @@
+.links h2 {
+    margin-top: 50px;
+    text-align: center;
+    color: #212EA0;
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.links-container {
+    margin: 20px auto;
+    width: 80%;
+    background-color: white;
+}
+  
+.links-container ul {
+list-style: none;
+padding: 0;
+}
+
+.links-container li {
+padding: 10px;
+border-top: 1px dashed #bbb;
+text-align: center;
+font-size: 20px;
+}
+
+.links-container li a {
+color: black;
+text-decoration: none;
+display: block;
+padding: 10px;
+}
+
+.links-container li:hover {
+text-decoration: underline;
+background-color: #b9bee4;
+color: #212EA0;
+}
+
+.links-container li a:hover {
+    color: #212EA0;
+}
