@@ -7,6 +7,7 @@ import react from '@vitejs/plugin-react'
 // })
 
 export default defineConfig({
-  base: '/<ERA-New-Website>/',
+  base: '/ERA-New-Website/',
+  plugins: [react()],
   // Other Vite configurations
 })
