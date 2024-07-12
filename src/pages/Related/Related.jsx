@@ -14,7 +14,7 @@ const Related = () => {
         <div className='container'>
             <Related_Follow />
             <Related_links />
-            <Title subTitle='怡睿照片集' />
+            <Title subTitle='怡睿活動合集' />
             <Related_gallery />
         </div>
     </div>
