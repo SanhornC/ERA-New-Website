@@ -1,6 +1,11 @@
 import React from 'react'
 import './Hero.css'
 
+const images = [
+
+];
+
+
 const Hero = () => {
   return (
     <div className='hero container '>

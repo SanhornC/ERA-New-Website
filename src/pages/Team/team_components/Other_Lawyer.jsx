@@ -3,11 +3,11 @@ import './Other_Lawyer.css'
 import next_icon from '../../../assets/next-icon.png'
 import back_icon from '../../../assets/back-icon.png'
 import user_1 from '../../../assets/Joy.png'
-import user_2 from '../../../assets/Sanhorn.jpeg'
-import user_3 from '../../../assets/Sanhorn.jpeg'
-import user_4 from '../../../assets/Sanhorn.jpeg'
-import user_5 from '../../../assets/Sanhorn.jpeg'
-import user_6 from '../../../assets/Sanhorn.jpeg'
+import user_2 from '../../../assets/person/Sanhorn.jpeg'
+import user_3 from '../../../assets/person/Sanhorn.jpeg'
+import user_4 from '../../../assets/person/Sanhorn.jpeg'
+import user_5 from '../../../assets/person/Sanhorn.jpeg'
+import user_6 from '../../../assets/person/Sanhorn.jpeg'
 
 const Other_Lawyer = () => {
   

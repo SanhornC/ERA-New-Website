@@ -44,7 +44,7 @@ const Contact_Box = () => {
                     怡睿一貫堅持，並以提供全方位及高品質之法律專業服務為客戶解決問題。憑著這樣的堅持，「怡睿」擁有豐厚的信譽及口碑。</p>
                 <ul>
                     <li><img src={mail_icon}></img>電子信箱：attorneys@eralawfirm.com</li>
-                    <li><img src={mail_icon}></img>備用聯絡信箱：eralawfirm0216@gmail.com</li>
+                    <li><img src={mail_icon}></img>備用聯絡信箱：eralawfirm2013@gmail.com</li>
                     <li><img src={phone_icon}></img>聯絡電話：03-551-5533</li>
                     <li><img src={phone_icon}></img>公司傳真：03-516-7034</li>
                     <li><img src={phone_icon}></img>Skype網路電話：joylinemba</li>

@@ -1,0 +1,42 @@
+.image-gallery {
+    width: 100%;
+    margin: auto;
+    margin-top: 80px;
+    max-width: 100%; /* Adjust this to fit your layout */
+    background: linear-gradient(rgba(192, 188, 215, 0.7), rgba(192, 188, 215, 0.7))
+  }
+  
+.image-slide {
+    position: relative;
+    width: 100%;
+    height: 900px;
+}
+  
+.image-slide img {
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: left;
+}
+  
+.overlay h2 {
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+  
+.overlay p {
+    margin: 0 0 10px 0;
+    text-align: center;
+    color: aliceblue;
+}
+  

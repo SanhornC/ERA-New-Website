@@ -6,13 +6,14 @@ import P1_Team from '../p1_components/p1_team/P1_Team'
 import P1_About from '../p1_components/p1_about/P1_About'
 import Title from '../p1_components/Title/Title'
 import './Home.css'
+import Horizontal_Scroll from '../Horizontal_Scroll/Horizontal_Scroll'
 
 const Home = () => {
   return (
     <div>
-      <Hero />
+      <Horizontal_Scroll />
         <div className='container'>
-            <Title subTitle='關於怡睿 - 專務所相關介紹' />
+            <Title subTitle='關於怡睿 - 設立理念' />
             <P1_About />
             <Title subTitle='服務領域' />
             <Service />

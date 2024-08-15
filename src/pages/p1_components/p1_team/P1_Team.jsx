@@ -2,12 +2,13 @@ import React, { useRef, useEffect } from 'react'
 import './P1_Team.css'
 import next_icon from '../../../assets/next-icon.png'
 import back_icon from '../../../assets/back-icon.png'
-import user_1 from '../../../assets/Joy.png'
-import user_2 from '../../../assets/Sanhorn.jpeg'
-import user_3 from '../../../assets/Sanhorn.jpeg'
-import user_4 from '../../../assets/Sanhorn.jpeg'
-import user_5 from '../../../assets/Sanhorn.jpeg'
-import user_6 from '../../../assets/Sanhorn.jpeg'
+import user_1 from '../../../assets/person/Joy.jpg'
+import user_2 from '../../../assets/person/Henry.jpg'
+import user_3 from '../../../assets/person/Anna.jpg'
+import user_4 from '../../../assets/person/黃炫中照片1.jpg'
+import user_5 from '../../../assets/person/余昱辰照片.jpg'
+import user_6 from '../../../assets/person/周庭卉照片.jpg'
+import user_7 from '../../../assets/person/Sanhorn.jpeg'
 
 const P1_Team = () => {
   
@@ -60,13 +61,40 @@ const P1_Team = () => {
                 <li>
                     <div className='slide'>
                         <div className='user-info'>
+                            <img src={user_4}></img>
+                            <div>
+                                <h3>黃炫中</h3>
+                                <span>律師</span>
+                            </div>
+                        </div>
+                        <b>學歷:</b>
+                        <br></br>
+                        <p>國立台灣大學法律系學士<br></br>
+                        國立中興大學科技法律研究所碩士</p>
+                        <br></br>
+                        <b>經歷:</b>
+                        <br></br>
+                        <p>
+                        前臺灣高等法院法官<br></br>
+                        前臺灣臺中地方法院法官
+                        </p>
+                    </div>
+                </li>
+
+                <li>
+                    <div className='slide'>
+                        <div className='user-info'>
                             <img src={user_2}></img>
                             <div>
                                 <h3>徐弘光</h3>
                                 <span>智權資深顧問</span>
                             </div>
                         </div>
-                        <p></p>
+                        <b>學歷:</b>
+                        <br></br>
+                        <p>國立台灣大學機械工程碩士<br></br>
+                        國立政治大學科技管理碩士
+                        </p>                        
                     </div>
                 </li>
                 
@@ -79,17 +107,40 @@ const P1_Team = () => {
                                 <span>智權顧問</span>
                             </div>
                         </div>
-                        <p></p>
+                        <b>學歷:</b>
+                        <br></br>
+                        <p>國立中央大學物理學系學士<br></br>
+                        國立中央大學光電研究所碩士
+                        </p>              
                     </div>
                 </li>
 
                 <li>
                     <div className='slide'>
                         <div className='user-info'>
-                            <img src={user_4}></img>
+                            <img src={user_5}></img>
                             <div>
-                                <h3>楊佩文</h3>
-                                <span>顧問</span>
+                                <h3>余昱辰</h3>
+                                <span>智權顧問</span>
+                            </div>
+                        </div>
+                        <b>經歷：</b>
+                        <br></br>
+                        <p>2014第一屆總統創新獎：專利服務創新(主動式三維度專利佈局)<br></br>
+                        工研院光電所-光通訊組件與系統研發、電光所LED組-專利經理(1999-2014)<br></br>
+                        威爾立國際智權顧問有限公司總經理(2015-2017)<br></br>
+                        嘉興山蒲照明電器有限公司-IP與法務中心負責人(2018-2023/02)
+                        </p>
+                    </div>
+                </li>
+                
+                <li>
+                    <div className='slide'>
+                        <div className='user-info'>
+                            <img src={user_6}></img>
+                            <div>
+                                <h3>周庭卉</h3>
+                                <span>財務顧問</span>
                             </div>
                         </div>
                         <p></p>
@@ -99,7 +150,7 @@ const P1_Team = () => {
                 <li>
                     <div className='slide'>
                         <div className='user-info'>
-                            <img src={user_5}></img>
+                            <img src={user_7}></img>
                             <div>
                                 <h3>陳聖閎</h3>
                                 <span>IT技術顧問</span>

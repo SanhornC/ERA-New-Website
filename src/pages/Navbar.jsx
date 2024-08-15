@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom';
-import logo from '../assets/era-logo.png'
+import logo from '../assets/era-official-logo.png'
 import menu from '../assets/menu-icon.png'
 
 const Navbar = () => {
@@ -25,7 +25,7 @@ const Navbar = () => {
     <nav className={`container ${sticky? 'dark-nav' : ''}`}>
         <Link to='/'><img src={logo} alt='' className='logo' /></Link>
         <ul className={mobileMenu ? '' : 'mobile-menu'}>
-            <li><Link to='/about'>關於怡睿</Link></li>
+            <li><Link to='/about'>本所優勢</Link></li>
             <li><Link to='/team'>專業團隊</Link></li>
             <li><Link to='/services'>服務領域</Link></li>
             <li><Link to='/related'>相關內容</Link></li>
