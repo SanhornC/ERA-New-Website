@@ -52,7 +52,7 @@ nav ul li:hover {
     }
 }
 
-@media (max-width: 840px) {
+@media (max-width: 860px) {
     nav {
         margin: 15px 0px;
     }
@@ -62,7 +62,7 @@ nav ul li:hover {
         top: 0;
         bottom: 0;
         right: 0px;
-        background: #212EA0;
+        background: #9ea2c5;
         z-index: -1;
         width: 200px;
         padding-top: 70px;
@@ -72,6 +72,10 @@ nav ul li:hover {
     nav ul li {
         display: block;
         margin: 25px 40px;
+    }
+
+    nav ul li:hover {
+        color: #212EA0;
     }
 
     .menu-icon {

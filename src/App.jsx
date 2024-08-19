@@ -30,7 +30,7 @@ const App = () => {
     <Router>
       <Navbar />
         <Routes>
-          <Route path="/ERA-New-Website" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<Advantage />} />
           <Route path="/services" element={<ServiceArea />} />

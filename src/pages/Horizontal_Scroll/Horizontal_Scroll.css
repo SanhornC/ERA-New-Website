@@ -39,4 +39,8 @@
     text-align: center;
     color: aliceblue;
 }
+
+@media (max-width: 800px) {
+    
+}
   

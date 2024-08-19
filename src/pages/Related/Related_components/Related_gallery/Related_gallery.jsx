@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import './Related_gallery.css'
 import gallery_1 from '../../../../assets/gallery1.jpg'
 import gallery_2 from '../../../../assets/gallery2.jpg'
