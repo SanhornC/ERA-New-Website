@@ -4,7 +4,7 @@ import trophy_img from '../../../assets/PIC/era-office/獎盃區.jpg'
 
 const Adv_special = () => {
   return (
-    <div className='about'>
+    <div className='adv-about'>
         <div className='about-left'>
             <img src={trophy_img} className='trophy-img'></img>
         </div>

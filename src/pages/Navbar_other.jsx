@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Navbar_other.css'
 import { Link } from 'react-router-dom';
-import logo from '../assets/era-logo.png'
+import logo from '../assets/era-official-logo.png'
 import menu from '../assets/menu-icon.png'
 
 const Navbar_other = () => {
@@ -26,6 +26,7 @@ const Navbar_other = () => {
             <li><Link to='/about'>本所優勢</Link></li>
             <li><Link to='/team'>專業團隊</Link></li>
             <li><Link to='/services'>服務領域</Link></li>
+            <li><Link to='/events'>活動資訊</Link></li>
             <li><Link to='/related'>相關內容</Link></li>
             <li><Link to='/contactus'><button className='btn'>聯絡我們</button></Link></li>
         </ul>

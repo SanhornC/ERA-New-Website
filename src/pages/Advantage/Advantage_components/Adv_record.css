@@ -1,0 +1,101 @@
+/* GoalPage.css */
+.record-page {
+    position: relative;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-color: #eae7e7;
+    text-align: center;
+    padding: 50px 0;
+  }
+  
+.record-title {
+    font-size: 2.5em;
+    color: #212EA0;
+    margin-bottom: 50px;
+}
+  
+.record-tab-navigation {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+  
+  .record-tab-button {
+    background: none;
+    border: none;
+    color: #212EA0;
+    font-size: 1.25em;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .record-tab-button.active {
+    border-bottom: 2px solid #212EA0;
+  }
+  
+  .record-sections {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 0 20px;
+  }
+  
+  .record-card {
+    background-color: rgba(115, 112, 146, 0.5); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .record-value {
+    font-size: 3em;
+    font-weight: bold;
+    color: #212EA0; /* Use a color to highlight the value */
+  }
+  
+  .record-description {
+    font-size: 1.25em;
+    margin-top: 10px;
+  }
+  
+  .record-sub {
+    font-size: 1em;
+    color: #ffffff;
+    margin-top: 5px;
+  }
+  
+  .record-navigation {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  
+  .record-nav-arrow {
+    background-color: #212EA0; /* Semi-transparent red background */
+    border: none;
+    padding: 10px 20px;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  .left-arrow {
+    position: absolute;
+    left: 20px;
+  }
+  
+  .right-arrow {
+    position: absolute;
+    right: 20px;
+  }

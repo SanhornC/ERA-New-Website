@@ -6,8 +6,11 @@ import "slick-carousel/slick/slick-theme.css"
 import img1 from '../../assets/PIC/era-office/凱峰辦公室招牌(正拍).jpg'
 import img2 from '../../assets/PIC/era-office/大會議室3.jpg'
 import img3 from '../../assets/PIC/era-office/事務所大樓外觀照片2.jpg'
+import img5 from '../../assets/PIC/era-office/2.jpg'
+import img6 from '../../assets/PIC/era-office/3.jpeg'
+import img7 from '../../assets/PIC/era-office/4.jpg'
 
-const images = [img1, img2, img3];
+const images = [img1, img2, img3, img5, img6, img7];
 
 const Horizontal_Scroll = () => {
     const settings = {

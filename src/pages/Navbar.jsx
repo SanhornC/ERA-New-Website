@@ -28,8 +28,10 @@ const Navbar = () => {
             <li><Link to='/about'>本所優勢</Link></li>
             <li><Link to='/team'>專業團隊</Link></li>
             <li><Link to='/services'>服務領域</Link></li>
+            <li><Link to='/events'>活動資訊</Link></li>
             <li><Link to='/related'>相關內容</Link></li>
             <li><Link to='/contactus'><button className='btn'>聯絡我們</button></Link></li>
+
         </ul>
         <img src={menu} className="menu-icon" onClick={toggleMenu}></img>
     </nav>
