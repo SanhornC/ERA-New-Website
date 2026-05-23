@@ -1,49 +1,48 @@
-import React, { useState } from 'react';
-import Modal from 'react-modal';
+import React, { useState } from 'react'
+import Modal from 'react-modal'
 import './Service.css'
 
-Modal.setAppElement('#root');
+Modal.setAppElement('#root')
 
 const Service = () => {
-  
   const services = [
-    { name: "合約諮詢", 
-        info: ["1. 各式英文合約之撰擬、審閱、談判 Supplier Agreement",
-                    " - Distribution Agreement", 
-                    " - Equipment Purchase Terms and Conditions",
-                    " - Non-Disclosure Agreement",
-                    " - Employee Stock Option Plan",
-                    " - Employee Incentive Plan Review",
-                    " - Investment Agreement",
-                    " - Share Purchase Agreement",  
-                "2. 各式中文合約之撰擬、審閱、談判合約談判策略",
-                    " - 保密合約(NDA)",
-                    " - 投資契約",
-                    " - 服務合約",
-                    " - 代理合約／經銷合約",
-                    " - 採購合約",
-                    " - 租賃合約",
-                    " - 僱傭契約/勞動契約",
-                    " - 委任契約",
-                    " - 顧問合約",
-                    " - 智慧財產權歸屬約定暨保密約定",
-                    " - 競業禁止約定合約",
-                "3. 合約風險分析",
-                "4. 合約談判策略",
-                "5. 合約文字修改協助" ] 
-            },
+    { name: "合約諮詢",
+      info: ["1. 各式英文合約之撰擬、審閱、談判 Supplier Agreement",
+        " - Distribution Agreement",
+        " - Equipment Purchase Terms and Conditions",
+        " - Non-Disclosure Agreement",
+        " - Employee Stock Option Plan",
+        " - Employee Incentive Plan Review",
+        " - Investment Agreement",
+        " - Share Purchase Agreement",
+        "2. 各式中文合約之撰擬、審閱、談判合約談判策略",
+        " - 保密合約(NDA)",
+        " - 投資契約",
+        " - 服務合約",
+        " - 代理合約／經銷合約",
+        " - 採購合約",
+        " - 租賃合約",
+        " - 僱傭契約/勞動契約",
+        " - 委任契約",
+        " - 顧問合約",
+        " - 智慧財產權歸屬約定暨保密約定",
+        " - 競業禁止約定合約",
+        "3. 合約風險分析",
+        "4. 合約談判策略",
+        "5. 合約文字修改協助"]
+    },
     { name: "國內外新創公司法律服務", info: [
         "1. 設立規劃",
         "2. 合資安排",
         "3. 技術股安排",
         "4. 中英文合約撰擬、修改",
-            " - 合資協議書",
-            " - 投資協議書",
-            " - 股份認購協議書",
-            " - 股東協議書",
-            " - 投資人權益協議書",
-            " - ESOP",
-            " - 員工認股相關文件",
+        " - 合資協議書",
+        " - 投資協議書",
+        " - 股份認購協議書",
+        " - 股東協議書",
+        " - 投資人權益協議書",
+        " - ESOP",
+        " - 員工認股相關文件",
         "5. 募資談判",
         "6. 撰寫及修改章程(包含境外公司之章程)"
     ] },
@@ -91,9 +90,9 @@ const Service = () => {
         "1. 營業秘密保護法規諮詢",
         "2. 營業秘密侵害紛爭解決",
         "3. 營業秘密侵害救濟",
-            " - 假扣押",
-            " - 假處分",
-            " - 秘密保持令",
+        " - 假扣押",
+        " - 假處分",
+        " - 秘密保持令",
         "7. 營業秘密相關訴訟"
     ] },
     { name: "美國出口管制法規(EAR)", info: [
@@ -134,41 +133,53 @@ const Service = () => {
         "6. 訴訟、仲裁、強制執行、資產保全",
         "7. 刑事偵查、告訴、起訴"
     ] }
-  ];
-  
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [selectedService, setSelectedService] = useState(null);
+  ]
 
-    const openModal = (service) => {
-        setSelectedService(service);
-        setModalIsOpen(true);
-    };
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [selectedService, setSelectedService] = useState(null)
 
-    const closeModal = () => {
-        setModalIsOpen(false);
-        setSelectedService(null);
-    };
+  const openModal = (service) => {
+    setSelectedService(service)
+    setModalIsOpen(true)
+  }
 
-    return (
-        <div className="services-container">
-            <ul className="services-list">
-                {services.map((service, index) => (
-                    <li key={index}>
-                        <a onClick={() => openModal(service)}>{service.name}</a>
-                    </li>
-                ))}
-            </ul>
-            <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="Service Information" className="Modal" overlayClassName="Overlay">
-                <h2>{selectedService?.name}</h2>
-                <br></br>
-                <ul>
-                    {selectedService?.info.map((point, index) => (
-                        <p key={index}>{point}</p>
-                    ))}
-                </ul>
-                <button className='popup_btn' onClick={closeModal}>關閉瀏覽</button>
-            </Modal>
+  const closeModal = () => {
+    setModalIsOpen(false)
+    setSelectedService(null)
+  }
+
+  return (
+    <div className="services-container">
+      <ul className="services-list">
+        {services.map((service, index) => (
+          <li key={index} className="service-card">
+            <button type="button" onClick={() => openModal(service)} className="service-card__btn">
+              <span className="service-card__num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+              <span className="service-card__name">{service.name}</span>
+              <span className="service-card__arrow" aria-hidden="true">→</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel={selectedService?.name || '服務內容'}
+        className="service-modal"
+        overlayClassName="service-overlay"
+        aria={{ labelledby: 'service-modal-title' }}
+      >
+        <button type="button" className="service-modal__close" onClick={closeModal} aria-label="關閉內容">×</button>
+        <h2 id="service-modal-title" className="service-modal__title">{selectedService?.name}</h2>
+        <div className="service-modal__divider" aria-hidden="true" />
+        <div className="service-modal__body">
+          {selectedService?.info.map((point, i) => (
+            <p key={i}>{point}</p>
+          ))}
         </div>
+        <button type="button" className="btn btn-primary service-modal__btn" onClick={closeModal}>關閉瀏覽</button>
+      </Modal>
+    </div>
   )
 }
 

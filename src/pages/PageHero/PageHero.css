@@ -1,0 +1,99 @@
+.page-hero {
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  align-items: flex-end;
+  padding-top: calc(var(--nav-height) + 32px);
+  padding-bottom: 56px;
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-mid) 100%);
+  color: var(--color-white);
+  overflow: hidden;
+}
+
+.page-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(201, 168, 76, 0.18), transparent 60%),
+    radial-gradient(circle at 10% 80%, rgba(52, 72, 112, 0.6), transparent 50%);
+  pointer-events: none;
+}
+
+.page-hero__inner {
+  position: relative;
+  max-width: var(--container-max);
+  width: 100%;
+  margin: 0 auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+.page-hero__rule {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--color-gold);
+  margin-bottom: 16px;
+}
+
+.page-hero__subtitle {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 12px;
+}
+
+.page-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  line-height: var(--leading-tight);
+  color: var(--color-white);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: 24px;
+}
+
+/* Breadcrumb */
+.breadcrumb ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.75);
+  gap: 0;
+}
+
+.breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+}
+
+.breadcrumb a {
+  color: rgba(255, 255, 255, 0.75);
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: var(--color-gold);
+}
+
+.breadcrumb__sep {
+  margin: 0 10px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.breadcrumb [aria-current="page"] {
+  color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    min-height: 220px;
+    padding-bottom: 40px;
+  }
+}

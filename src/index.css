@@ -1,66 +1,367 @@
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&display=swap');
+/* ============================================
+   Design tokens — Refined Institutional Elegance
+   ============================================ */
 
-* {
+:root {
+  /* Primary palette */
+  --color-navy:        #1A2744;
+  --color-navy-mid:    #243356;
+  --color-navy-light:  #344870;
+
+  /* Neutrals */
+  --color-white:       #FFFFFF;
+  --color-off-white:   #F8F7F5;
+  --color-light-grey:  #EFEFEF;
+  --color-mid-grey:    #9CA3AF;
+  --color-dark-grey:   #374151;
+  --color-charcoal:    #1F2937;
+
+  /* Accent */
+  --color-gold:        #C9A84C;
+  --color-gold-light:  #E8D5A3;
+
+  /* Semantic tokens */
+  --bg-primary:        var(--color-white);
+  --bg-secondary:      var(--color-off-white);
+  --bg-dark:           var(--color-navy);
+  --text-primary:      var(--color-charcoal);
+  --text-secondary:    var(--color-dark-grey);
+  --text-muted:        var(--color-mid-grey);
+  --text-inverse:      var(--color-white);
+  --accent:            var(--color-gold);
+  --border:            var(--color-light-grey);
+  --border-accent:     var(--color-navy-mid);
+
+  /* Typography scale */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+  --text-5xl:  3rem;
+  --text-6xl:  3.75rem;
+  --text-7xl:  4.5rem;
+
+  --tracking-tight:   -0.02em;
+  --tracking-normal:   0em;
+  --tracking-wide:     0.05em;
+  --tracking-wider:    0.1em;
+  --tracking-widest:   0.2em;
+
+  --leading-tight:  1.2;
+  --leading-normal: 1.6;
+  --leading-loose:  1.8;
+
+  /* Font families */
+  --font-display: 'Cormorant Garamond', 'Noto Serif TC', 'BiauKai', '標楷體', 'DFKai-SB', Georgia, serif;
+  --font-serif-tc: 'Noto Serif TC', 'BiauKai', '標楷體', 'DFKai-SB', serif;
+  --font-sans: 'DM Sans', 'Noto Serif TC', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Layout */
+  --container-max:   1280px;
+  --container-pad:   clamp(16px, 4vw, 80px);
+  --grid-gap:        32px;
+  --section-gap:     96px;
+  --nav-height:      72px;
+
+  /* Breakpoints (reference only — used in media queries) */
+  /* --bp-sm: 640px; --bp-md: 768px; --bp-lg: 1024px; --bp-xl: 1280px; --bp-2xl: 1440px; */
+}
+
+/* ============================================
+   Reset
+   ============================================ */
+
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "LXGW WenKai TC", cursive;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: #F5F5F5;
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font-family: var(--font-serif-tc);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Latin runs in English serif/sans */
+:lang(en), .en, .firm-name-en {
+  font-family: var(--font-sans);
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 a {
   text-decoration: none;
   color: inherit;
-  line-height: 1;
   cursor: pointer;
 }
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--color-charcoal);
+  line-height: var(--leading-tight);
+  font-weight: 400;
+}
+
+p {
+  line-height: var(--leading-normal);
+}
+
+mark {
+  background: var(--color-gold-light);
+  color: var(--color-navy);
+  padding: 0 4px;
+}
+
+/* ============================================
+   Layout primitives
+   ============================================ */
 
 .container {
-  padding-left: 10%;
-  padding-right: 10%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
 }
 
+.section {
+  padding: 96px 0;
+}
+
+.section--compact {
+  padding: 64px 0;
+}
+
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .section--compact { padding: 40px 0; }
+}
+
+/* Section heading treatment */
+.section-label {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.875rem, 3vw, 2.25rem);
+  font-weight: 400;
+  line-height: var(--leading-tight);
+  color: var(--color-navy);
+  margin-bottom: 24px;
+  letter-spacing: var(--tracking-tight);
+}
+
+.section-divider {
+  width: 48px;
+  height: 1px;
+  background: var(--accent);
+  margin-bottom: 48px;
+}
+
+.section-divider--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-head--center {
+  text-align: center;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+
 .btn {
-  background: white;
-  color: #212121;
-  padding: 14px 20px;
-  font-size: 18px;
-  border-radius: 30px;
-  cursor: pointer;
-  border: 0;
-  outline: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border: 1.5px solid transparent;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, transform 0.2s, border-color 0.25s;
+  min-height: 44px;
 }
 
 .btn img {
-  width: 20px;
+  width: 16px;
   margin-left: 10px;
 }
 
+.btn-primary,
 .btn.dark-btn {
-  background: #212EA0;
-  color: white;
+  background: var(--color-navy);
+  color: var(--text-inverse);
+  border-color: var(--color-navy);
 }
 
-.btn.btn.dark-btn:hover {
-  background-color: #b9bee4;
+.btn-primary:hover,
+.btn.dark-btn:hover {
+  background: var(--color-navy-light);
+  border-color: var(--color-navy-light);
+  transform: translateY(-1px);
 }
 
-/* Media Query */
-
-@media (max-width: 1200px) {
-    .container {
-      padding-left: 5%;
-      padding-right: 5%;
-    }
-    .btn {
-      padding: 14px 22px;
-    }
+.btn-secondary {
+  background: transparent;
+  color: var(--color-navy);
+  border-color: var(--color-navy);
 }
 
+.btn-secondary:hover {
+  background: var(--color-navy);
+  color: var(--text-inverse);
+}
+
+.btn-accent {
+  background: var(--color-gold);
+  color: var(--color-navy);
+  border-color: var(--color-gold);
+}
+
+.btn-accent:hover {
+  background: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  transform: translateY(-1px);
+}
+
+.btn-outline-light {
+  background: transparent;
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--color-navy);
+  border-color: var(--color-white);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Form fields — global defaults
+   ============================================ */
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: 16px;
+  border: 1px solid var(--border);
+  background: var(--color-white);
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--color-navy);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.25);
+}
+
+/* ============================================
+   Skip link (a11y)
+   ============================================ */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  padding: 8px 16px;
+  background: var(--color-navy);
+  color: var(--color-white);
+  z-index: 9999;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ============================================
+   Scroll-reveal helper
+   ============================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   Scroll-to-top button
+   ============================================ */
+
+.scroll-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  background: var(--color-navy);
+  color: var(--color-white);
+  border: 1px solid var(--color-gold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, background 0.25s, transform 0.25s;
+}
+
+.scroll-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll-to-top:hover {
+  background: var(--color-navy-light);
+  transform: translateY(-2px);
+}

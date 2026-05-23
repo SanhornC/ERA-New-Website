@@ -1,46 +1,20 @@
-import React, { useState } from 'react'
-import img1 from './../../../assets/Events/event4_img1.jpg'
+import React from 'react'
+import EventDetail from './EventDetail'
+import img2 from './../../../assets/Events/event3_img1.jpg'
+import img3 from './../../../assets/Events/event3_img2.jpg'
+import img5 from './../../../assets/Events/event3_img4.jpg'
+import img6 from './../../../assets/Events/event3_img5.jpg'
+import img7 from './../../../assets/Events/event3_img6.jpg'
 
+const images = [{ src: img2 }, { src: img3 }, { src: img5 }, { src: img6 }, { src: img7 }]
 
-
-const images = [ 
-    {src: img1, title: '陽明交大校友會工商經營178Club - 4月份總裁思維讀書會科技法律講座與商務交流活動', description: '請點擊觀看活動照片', date: '2023/4/25'},
-];
-
-const Event4 = () => {
-
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    const prevSlide = () => {
-      const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
-      setCurrentIndex(newIndex);
-    };
-  
-    const nextSlide = () => {
-      const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
-      setCurrentIndex(newIndex);
-    };
-
-  return (
-    <div className="event-container">
-            <div className="event-image">
-                <img src={images[currentIndex].src} alt={images[currentIndex].alt} />
-                <div className="event-caption">
-                    <h2>{images[currentIndex].title}</h2>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <h3>{images[currentIndex].description}</h3>
-                    <p className="event-date">演講日期: {images[currentIndex].date}</p>
-                </div>
-            </div>
-            <div className="evenet-controls">
-                <button onClick={prevSlide} className="event-control left">&lt;</button>
-                <button onClick={nextSlide} className="event-control right">&gt;</button>
-            </div>
-      </div>
-  )
-}
+const Event4 = () => (
+  <EventDetail
+    images={images}
+    title="凱峰保密合約演講"
+    date="2023/3/8"
+    isoDate="2023-03-08"
+  />
+)
 
 export default Event4

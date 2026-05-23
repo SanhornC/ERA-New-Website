@@ -1,101 +1,94 @@
-/* GoalPage.css */
-.record-page {
-    position: relative;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-color: #eae7e7;
-    text-align: center;
-    padding: 50px 0;
-  }
-  
-.record-title {
-    font-size: 2.5em;
-    color: #212EA0;
-    margin-bottom: 50px;
+.adv-record {
+  background: var(--bg-dark);
+  color: rgba(255, 255, 255, 0.85);
 }
-  
-.record-tab-navigation {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
+
+.adv-record .section-title { color: var(--color-white); }
+.adv-record .section-label { color: var(--color-gold); }
+
+.adv-record__tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 56px;
 }
-  
-  .record-tab-button {
-    background: none;
-    border: none;
-    color: #212EA0;
-    font-size: 1.25em;
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .record-tab-button.active {
-    border-bottom: 2px solid #212EA0;
-  }
-  
-  .record-sections {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    padding: 0 20px;
-  }
-  
-  .record-card {
-    background-color: rgba(115, 112, 146, 0.5); /* Semi-transparent background */
-    padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .record-value {
-    font-size: 3em;
-    font-weight: bold;
-    color: #212EA0; /* Use a color to highlight the value */
-  }
-  
-  .record-description {
-    font-size: 1.25em;
-    margin-top: 10px;
-  }
-  
-  .record-sub {
-    font-size: 1em;
-    color: #ffffff;
-    margin-top: 5px;
-  }
-  
-  .record-navigation {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-  }
-  
-  .record-nav-arrow {
-    background-color: #212EA0; /* Semi-transparent red background */
-    border: none;
-    padding: 10px 20px;
-    font-size: 2em;
-    color: white;
-    cursor: pointer;
-    border-radius: 50%;
-  }
-  
-  .left-arrow {
-    position: absolute;
-    left: 20px;
-  }
-  
-  .right-arrow {
-    position: absolute;
-    right: 20px;
-  }
+
+.adv-record__tab {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  padding: 12px 4px;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.25s, border-color 0.25s;
+}
+
+.adv-record__tab:hover { color: var(--color-white); }
+.adv-record__tab.is-active {
+  color: var(--color-gold);
+  border-bottom-color: var(--color-gold);
+}
+
+.adv-record__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.adv-record__card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 32px;
+  text-align: center;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.adv-record__card:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-4px);
+}
+
+.adv-record__value {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 400;
+  color: var(--color-gold);
+  line-height: 1.1;
+  letter-spacing: var(--tracking-tight);
+}
+
+.adv-record__divider {
+  width: 32px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 16px auto 16px;
+}
+
+.adv-record__desc {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: var(--leading-loose);
+  font-size: var(--text-sm);
+}
+
+.adv-record__sub {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  border-bottom: 1px solid var(--color-gold);
+  padding-bottom: 2px;
+}
+
+.adv-record__sub:hover { color: var(--color-gold-light); }
+
+@media (max-width: 768px) {
+  .adv-record__grid { grid-template-columns: 1fr; gap: 20px; }
+  .adv-record__card { padding: 28px 20px; }
+}

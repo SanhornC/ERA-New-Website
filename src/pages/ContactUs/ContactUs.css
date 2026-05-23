@@ -1,0 +1,7 @@
+.contact-form-section {
+  background: var(--bg-dark);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.contact-form-section .section-title { color: var(--color-white); }
+.contact-form-section .section-label { color: var(--color-gold); }

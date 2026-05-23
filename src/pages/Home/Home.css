@@ -1,0 +1,28 @@
+.home-section {
+  padding: 96px 0;
+}
+
+.home-section--primary {
+  background: var(--bg-primary);
+}
+
+.home-section--secondary {
+  background: var(--bg-secondary);
+}
+
+.home-section--dark {
+  background: var(--bg-dark);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.home-section--dark .section-title {
+  color: var(--color-white);
+}
+
+.home-section--dark .section-label {
+  color: var(--color-gold);
+}
+
+@media (max-width: 768px) {
+  .home-section { padding: 64px 0; }
+}

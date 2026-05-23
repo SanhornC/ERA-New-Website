@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local notes / planning docs
+prompt.md
+UI_improvements.md
+todo.md
+

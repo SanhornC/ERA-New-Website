@@ -1,61 +1,77 @@
-.adv-about {
-    margin: 80px auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    background-color: #eae7e7;
+.adv-special {
+  background: var(--bg-primary);
 }
 
-.about-left {
-    flex-basis: 40%;
-    position: relative;
+.adv-special__inner {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 64px;
+  align-items: center;
 }
 
-.about-right {
-    flex-basis: 66%;
+.adv-special__media {
+  position: relative;
 }
 
-.trophy-img {
-    width: 70%;
-    border-radius: 10px;
+.adv-special__media::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: -16px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--color-gold);
+  z-index: 0;
 }
 
-.adv-about h3 {
-    font-weight: 600;
-    font-weight: 20px;
-    color: #212EA0;
+.adv-special__img {
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+  display: block;
 }
 
-.adv-about h2 {
-    font-size: 45px;
-    color: #000F38;
-    margin: 10px 0;
-    max-width: 400px;
+.adv-special__text {
+  color: var(--text-primary);
+  line-height: var(--leading-loose);
+  margin-bottom: 24px;
 }
 
-.adv-about p {
-    color: #676767;
-    margin-bottom: 25px;
-    font-size: large;
+.adv-special__list {
+  list-style: none;
+  counter-reset: adv;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 0;
 }
 
-/* Media Query */
+.adv-special__list li {
+  counter-increment: adv;
+  position: relative;
+  padding-left: 48px;
+  color: var(--text-secondary);
+  line-height: var(--leading-loose);
+}
 
+.adv-special__list li::before {
+  content: counter(adv, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--color-gold);
+  letter-spacing: var(--tracking-wide);
+}
 
-@media (max-width: 800px) {
-    .about {
-        flex-direction: column;
-    }
+@media (max-width: 1024px) { .adv-special__inner { gap: 48px; } }
 
-    .about-left {
-        flex-basis: 100%;
-        margin: 20px;
-        order: 2;
-    }
-
-    .about-right {
-        flex-basis: 100%;
-        margin: 20px;
-    }
+@media (max-width: 768px) {
+  .adv-special__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .adv-special__media::before { display: none; }
 }

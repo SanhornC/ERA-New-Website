@@ -1,28 +1,31 @@
 .campus {
-    margin: 50px auto;
-    width: 90%;
-    display: flex;
-    overflow-x: scroll; /* Enable horizontal scrolling */
-    overflow-y: hidden; /* Disable vertical scrolling */
-    box-sizing: border-box;
-    border: 1px solid #ddd;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold) transparent;
 }
 
 .gallery {
-    display: flex; /* Change from grid to flexbox for horizontal alignment */
-    padding: 10px;
+  display: flex;
+  gap: 16px;
 }
 
 .gallery img {
-    width: auto; /* Maintain the image aspect ratio */
-    height: 300px; /* Set a fixed height for all images */
-    margin-right: 20px; /* Space between images */
-    object-fit: cover;
+  height: 320px;
+  width: auto;
+  object-fit: cover;
+  scroll-snap-align: start;
+  border: 1px solid var(--border);
+  display: block;
 }
 
-/* Media Query */
-@media (max-width: 800px) {
-    .gallery img {
-        height: 200px; /* Adjust height for smaller screens */
-    }
+@media (max-width: 768px) {
+  .gallery img { height: 220px; }
 }

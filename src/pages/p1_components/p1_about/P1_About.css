@@ -1,59 +1,71 @@
 .about {
-    margin: 80px auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 90%;
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 64px;
+  align-items: center;
 }
 
-.about-left {
-    flex-basis: 40%;
-    position: relative;
+.about-media {
+  position: relative;
 }
 
-.about-right {
-    flex-basis: 66%;
+.about-media::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: -16px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--color-gold);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .about-img {
-    width: 80%;
-    border-radius: 10px;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+  display: block;
 }
 
-.about h3 {
-    font-weight: 600;
-    font-weight: 20px;
-    color: #212EA0;
+.about-eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 12px;
 }
 
-.about h2 {
-    font-size: 45px;
-    color: #000F38;
-    margin: 10px 0;
-    max-width: 400px;
+.about-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 400;
+  color: var(--color-navy);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  margin-bottom: 24px;
 }
 
-.about p {
-    color: #676767;
-    margin-bottom: 25px;
+.about-text {
+  color: var(--text-secondary);
+  line-height: var(--leading-loose);
+  text-align: justify;
+  border-left: 2px solid var(--color-gold);
+  padding-left: 24px;
 }
 
-/* Media Query */
+@media (max-width: 1024px) {
+  .about { gap: 48px; }
+}
 
-
-@media (max-width: 800px) {
-    .about {
-        flex-direction: column;
-    }
-
-    .about-left {
-        flex-basis: 100%;
-        margin: 20px;
-        order: 2;
-    }
-
-    .about-right {
-        flex-basis: 100%;
-        margin: 20px;
-    }
+@media (max-width: 768px) {
+  .about {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about-media::before { display: none; }
+  .about-text { padding-left: 16px; }
 }

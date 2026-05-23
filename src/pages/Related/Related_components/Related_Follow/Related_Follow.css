@@ -1,42 +1,56 @@
-.follow-links h2 {
-    margin-top: 100px;
-    text-align: center;
-    color: #212EA0;
-    font-size: 25px;
-    font-weight: 600;
-    text-transform: uppercase;
+.related-follow {
+  margin-bottom: 96px;
 }
 
-.follow-links-container {
-    margin: 20px auto;
-    width: 80%;
-    background-color: white;
-}
-  
-.follow-links-container ul {
-list-style: none;
-padding: 0;
+.related-follow__list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
-.follow-links-container li {
-padding: 10px;
-text-align: center;
-font-size: 20px;
+.related-follow__list a {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 24px 28px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--color-gold);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  color: inherit;
 }
 
-.follow-links-container li a {
-color: black;
-text-decoration: none;
-display: block;
-padding: 10px;
+.related-follow__list a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(26, 39, 68, 0.08);
+  border-color: var(--color-navy);
 }
 
-.follow-links-container li:hover {
-text-decoration: underline;
-background-color: #b9bee4;
-color: #212EA0;
+.related-follow__brand {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-gold);
 }
 
-.follow-links-container li a:hover {
-    color: #212EA0;
+.related-follow__label {
+  font-family: var(--font-serif-tc);
+  font-size: var(--text-lg);
+  color: var(--color-navy);
+}
+
+.related-follow__arrow {
+  color: var(--color-navy-mid);
+  font-size: 18px;
+  transition: transform 0.25s, color 0.25s;
+}
+
+.related-follow__list a:hover .related-follow__arrow {
+  color: var(--color-gold);
+  transform: translate(2px, -2px);
 }

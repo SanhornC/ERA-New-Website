@@ -1,19 +1,26 @@
 import React from 'react'
-import Navbar_other from '../Navbar_other'
-import Lawyer from './team_components/Lawyer'
-import Other_Lawyer from './team_components/Other_Lawyer'
-import P1_Team from '../p1_components/p1_team/P1_Team'
-import Title from '../p1_components/Title/Title'
+import { Helmet } from 'react-helmet-async'
+import PageHero from '../PageHero/PageHero'
 import Lawyer_list from './team_components/Lawyer_list'
 
 const Team = () => {
   return (
-    <div>
-      <Navbar_other />
-      <div className='container'>
-        <Lawyer_list />
-      </div>
-    </div>
+    <>
+      <Helmet>
+        <title>專業團隊 — 律師與顧問 | 怡睿國際法律事務所</title>
+        <meta name="description" content="怡睿國際法律事務所團隊介紹 — 律師、智權顧問、財務顧問。" />
+      </Helmet>
+      <PageHero
+        title="專業團隊"
+        subtitle="Our People"
+        breadcrumbs={[{ to: '/', label: '首頁' }, { label: '專業團隊' }]}
+      />
+      <section className="section">
+        <div className="container">
+          <Lawyer_list />
+        </div>
+      </section>
+    </>
   )
 }
 
