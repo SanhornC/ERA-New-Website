@@ -85,6 +85,12 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  /* Reserve the scrollbar track permanently so toggling `body { overflow: hidden }`
+     (e.g. opening the mobile nav menu / any overlay) never changes the content width.
+     Fixes Windows/Chrome layout shift where removing the ~15px native scrollbar
+     re-centered fixed/centered elements and made buttons appear to "scatter".
+     No-op on macOS where overlay scrollbars take 0px. */
+  scrollbar-gutter: stable;
 }
 
 body {
