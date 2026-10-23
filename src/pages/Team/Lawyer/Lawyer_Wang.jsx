@@ -1,4 +1,3 @@
-import React from 'react'
 import LawyerProfile from './LawyerProfile'
 import wang_img from './../../../assets/person/Sherry.jpg'
 
@@ -28,6 +27,8 @@ const Lawyer_Wang = () => (
     name="王承舜律師"
     role="合作美國加州律師"
     img={wang_img}
+    imgWidth={1134}
+    imgHeight={1443}
     sections={sections}
   />
 )

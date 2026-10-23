@@ -1,11 +1,10 @@
-import React from 'react'
 import './Related_Follow.css'
 
 const Related_Follow = () => {
   return (
     <section className="related-follow" aria-labelledby="related-follow-heading">
       <div className="section-head--center">
-        <span className="section-label">Follow Us</span>
+        <span className="section-label" lang="en">Follow Us</span>
         <h2 className="section-title" id="related-follow-heading">關注怡睿</h2>
         <div className="section-divider section-divider--center" />
       </div>

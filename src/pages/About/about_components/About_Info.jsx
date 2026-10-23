@@ -1,13 +1,19 @@
-import React from 'react'
 import './About_Info.css'
 import era_door_img from '../../../assets/era_door.jpg'
 
 const About_Info = () => {
   return (
     <div className='info_container'>
-      <img src={era_door_img} />
+      <img
+        src={era_door_img}
+        alt="怡睿國際法律事務所入口"
+        width="1290"
+        height="616"
+        loading="lazy"
+        decoding="async"
+      />
       <div className='text_container'>
-        <p>本所林秀怡主持律師秉持多年來處理國際法律事務之經驗，深刻體會國內企業在國際巿場中拓展業務時，容易輕忽其所承擔之法律風險，
+        <p>本所林秀怡主持律師秉持多年來處理國際法律事務之經驗，深刻體會國內企業在國際市場中拓展業務時，容易輕忽其所承擔之法律風險，
             加以國內多數律師之主要業務為民刑事訴訟而缺乏與國外企業交手之經驗，無法提供國內企業開發國際市場時必要之法律諮詢服務；而國內大型法律事務所，
             又常接受外國企業之委託，成為國內企業各項交易、締約談判之對造，致使國內企業常處於相對弱勢之一方；
             身為台灣子弟，林秀怡律師長久以來，一直希望能轉換角色，從外國企業的代表轉而為國內企業的守護者，為這塊土地盡一己之力；

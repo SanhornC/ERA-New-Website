@@ -1,14 +1,8 @@
-import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import PageHero from '../PageHero/PageHero'
 import './Legal.css'
 
 const Privacy = () => (
   <>
-    <Helmet>
-      <title>隱私權政策 | 怡睿國際法律事務所</title>
-      <meta name="description" content="怡睿國際法律事務所隱私權政策說明。" />
-    </Helmet>
     <PageHero
       title="隱私權政策"
       subtitle="Privacy Policy"

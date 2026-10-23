@@ -1,14 +1,8 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
 import './NotFound.css'
 
 const NotFound = () => (
   <>
-    <Helmet>
-      <title>找不到此頁面 | 怡睿國際法律事務所</title>
-      <meta name="robots" content="noindex" />
-    </Helmet>
     <section className="notfound">
       <div className="notfound__inner">
         <span className="notfound__code" lang="en">404</span>

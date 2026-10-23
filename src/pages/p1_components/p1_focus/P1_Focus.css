@@ -1,0 +1,128 @@
+/* Highlights band */
+.highlights {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.highlights__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 24px;
+  text-align: center;
+}
+
+.highlights__item + .highlights__item {
+  border-left: 1px solid rgba(201, 168, 76, 0.35);
+}
+
+.highlights__value {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  line-height: 1;
+  color: var(--color-white);
+}
+
+.highlights__unit {
+  font-size: 0.55em;
+  color: var(--color-gold);
+  margin-left: 4px;
+}
+
+.highlights__label {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.78);
+  line-height: var(--leading-normal);
+}
+
+/* Who we serve */
+.focus__lead {
+  max-width: 48em;
+  margin: 0 auto 56px;
+  text-align: center;
+  color: var(--text-secondary);
+  line-height: var(--leading-loose);
+}
+
+.focus__grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.focus-card {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px;
+  background: var(--color-white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--color-gold);
+}
+
+.focus-card__title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--color-navy);
+  margin-bottom: 16px;
+}
+
+.focus-card__text {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-loose);
+  margin-bottom: 24px;
+}
+
+.focus-card__links {
+  list-style: none;
+  margin-top: auto;
+  display: grid;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.focus-card__links a,
+.focus__note a {
+  color: var(--color-navy);
+  font-size: var(--text-sm);
+  border-bottom: 1px solid var(--color-gold);
+  transition: color 0.2s;
+}
+
+.focus-card__links a::after {
+  content: ' →';
+  color: var(--color-gold-text);
+}
+
+.focus-card__links a:hover,
+.focus__note a:hover {
+  color: var(--color-gold-text);
+}
+
+.focus__note {
+  margin-top: 40px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+.focus__note a {
+  margin: 0 4px;
+}
+
+@media (max-width: 1024px) {
+  .focus__grid { grid-template-columns: repeat(2, 1fr); }
+
+  .highlights { grid-template-columns: repeat(2, 1fr); row-gap: 32px; }
+  .highlights__item:nth-child(3) { border-left: 0; }
+}
+
+@media (max-width: 640px) {
+  .focus__grid { grid-template-columns: 1fr; }
+  .focus__lead { text-align: left; }
+  .highlights__item { padding: 8px 12px; }
+}

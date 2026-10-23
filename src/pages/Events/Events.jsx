@@ -1,5 +1,3 @@
-import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import PageHero from '../PageHero/PageHero'
 import Title from '../p1_components/Title/Title'
 import './Events.css'
@@ -9,10 +7,6 @@ import Event_photo from './Events_components/Event_photo'
 const Events = () => {
   return (
     <>
-      <Helmet>
-        <title>活動資訊 — 演講與研討會 | 怡睿國際法律事務所</title>
-        <meta name="description" content="怡睿國際法律事務所近期受邀演講、研討會與活動合集。" />
-      </Helmet>
       <PageHero
         title="活動資訊"
         subtitle="Speaking & Events"

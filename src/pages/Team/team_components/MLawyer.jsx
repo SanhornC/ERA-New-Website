@@ -1,4 +1,3 @@
-import React from 'react'
 import LawyerProfile from '../Lawyer/LawyerProfile'
 import lawyer_img from '../../../assets/Joy.png'
 
@@ -61,7 +60,10 @@ const MLawyer = () => (
     englishName="Joy Lin"
     role="主持律師"
     img={lawyer_img}
+    imgWidth={378}
+    imgHeight={568}
     sections={sections}
+    practiceAreas={['mergers-acquisitions', 'corporate-compliance', 'contract-consulting', 'startup-legal-services', 'us-export-controls', 'intellectual-property']}
     body={body}
     publications={publications}
   />

@@ -1,14 +1,8 @@
-import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import PageHero from '../PageHero/PageHero'
 import './Legal.css'
 
 const Terms = () => (
   <>
-    <Helmet>
-      <title>服務條款 | 怡睿國際法律事務所</title>
-      <meta name="description" content="怡睿國際法律事務所網站使用條款。" />
-    </Helmet>
     <PageHero
       title="服務條款"
       subtitle="Terms of Services"

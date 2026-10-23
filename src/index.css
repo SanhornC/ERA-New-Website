@@ -19,6 +19,7 @@
   /* Accent */
   --color-gold:        #C9A84C;
   --color-gold-light:  #E8D5A3;
+  --color-gold-text:   #866B20;
 
   /* Semantic tokens */
   --bg-primary:        var(--color-white);
@@ -56,9 +57,11 @@
   --leading-loose:  1.8;
 
   /* Font families */
-  --font-display: 'Cormorant Garamond', 'Noto Serif TC', 'BiauKai', '標楷體', 'DFKai-SB', Georgia, serif;
-  --font-serif-tc: 'Noto Serif TC', 'BiauKai', '標楷體', 'DFKai-SB', serif;
-  --font-sans: 'DM Sans', 'Noto Serif TC', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  /* Keep fallback metrics closer across macOS and Windows; avoid platform-specific
+     Kai typefaces, which can change line wrapping substantially. */
+  --font-display: 'Cormorant Garamond', 'Noto Serif TC', 'Songti TC', 'PMingLiU', Georgia, serif;
+  --font-serif-tc: 'Noto Serif TC', 'Songti TC', 'PMingLiU', Georgia, serif;
+  --font-sans: 'DM Sans', 'Noto Serif TC', 'PingFang TC', 'Microsoft JhengHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
 
   /* Layout */
   --container-max:   1280px;
@@ -69,6 +72,12 @@
 
   /* Breakpoints (reference only — used in media queries) */
   /* --bp-sm: 640px; --bp-md: 768px; --bp-lg: 1024px; --bp-xl: 1280px; --bp-2xl: 1440px; */
+}
+
+@media (max-width: 640px) {
+  :root {
+    --nav-height: 60px;
+  }
 }
 
 /* ============================================
@@ -99,13 +108,17 @@ body {
   font-family: var(--font-serif-tc);
   font-size: var(--text-base);
   line-height: var(--leading-normal);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Latin runs in English serif/sans */
 :lang(en), .en, .firm-name-en {
   font-family: var(--font-sans);
+}
+
+/* Component display rules (e.g. display: grid) must not override [hidden] —
+   tab panels and carousels toggle visibility with the attribute. */
+[hidden] {
+  display: none !important;
 }
 
 img {
@@ -167,13 +180,18 @@ mark {
   .section--compact { padding: 40px 0; }
 }
 
+@media (max-width: 480px) {
+  .section-title { font-size: 1.625rem; }
+  .section-divider { margin-bottom: 36px; }
+}
+
 /* Section heading treatment */
 .section-label {
   font-family: var(--font-sans);
   font-size: var(--text-xs);
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--color-gold-text);
   margin-bottom: 12px;
   display: block;
 }
@@ -370,4 +388,21 @@ input:focus, textarea:focus, select:focus {
 .scroll-to-top:hover {
   background: var(--color-navy-light);
   transform: translateY(-2px);
+}
+
+/* Respect the operating-system motion preference across transitions, reveals,
+   and third-party carousel animations. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
 }

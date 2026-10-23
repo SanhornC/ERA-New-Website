@@ -1,4 +1,3 @@
-import React from 'react'
 import './Lawyer.css'
 import lawyer_img from '../../../assets/Joy.png'
 
@@ -7,7 +6,15 @@ const Lawyer = () => {
     <div>
         <div className='about'>
             <div className='about-left'>
-                <img src={lawyer_img} className='lawyer-img'></img>
+                <img
+                    src={lawyer_img}
+                    className='lawyer-img'
+                    alt="林秀怡律師 — 怡睿國際法律事務所"
+                    width="378"
+                    height="568"
+                    loading="lazy"
+                    decoding="async"
+                />
             </div>
             <div className='about-right'>
                 <h3>主持律師</h3>

@@ -1,14 +1,21 @@
-import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import './PageHero.css'
 
 const PageHero = ({ title, subtitle, breadcrumbs = [] }) => {
+  const isEnglishSubtitle = typeof subtitle === 'string'
+    && /^[A-Za-z][A-Za-z0-9\s&.,'’:/()–—-]*$/.test(subtitle)
+
   return (
-    <header className="page-hero" role="banner">
+    <header className="page-hero">
       <div className="page-hero__overlay" aria-hidden="true" />
       <div className="page-hero__inner">
         <span className="page-hero__rule" aria-hidden="true" />
-        {subtitle && <span className="page-hero__subtitle" lang="en">{subtitle}</span>}
+        {subtitle && (
+          <span className="page-hero__subtitle" lang={isEnglishSubtitle ? 'en' : undefined}>
+            {subtitle}
+          </span>
+        )}
         <h1 className="page-hero__title">{title}</h1>
         {breadcrumbs.length > 0 && (
           <nav aria-label="麵包屑導覽" className="breadcrumb">
@@ -32,6 +39,15 @@ const PageHero = ({ title, subtitle, breadcrumbs = [] }) => {
       </div>
     </header>
   )
+}
+
+PageHero.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+  breadcrumbs: PropTypes.arrayOf(PropTypes.shape({
+    to: PropTypes.string,
+    label: PropTypes.string.isRequired,
+  })),
 }
 
 export default PageHero

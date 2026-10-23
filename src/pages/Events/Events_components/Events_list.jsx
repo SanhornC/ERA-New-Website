@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import './Events_list.css'
 
@@ -18,8 +17,8 @@ const Events_list = () => {
   return (
     <div className="events">
       <div className="section-head--center">
-        <span className="section-label">Recent Talks</span>
-        <h2 className="section-title">近期受邀演講</h2>
+        <span className="section-label" lang="en">Selected Talks</span>
+        <h2 className="section-title">歷年受邀演講</h2>
         <div className="section-divider section-divider--center" />
       </div>
 

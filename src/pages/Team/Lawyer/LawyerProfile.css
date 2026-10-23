@@ -68,8 +68,34 @@
 }
 
 .lawyer-profile__back {
-  display: inline-flex;
+  display: flex;
+  width: 100%;
   white-space: nowrap;
+}
+
+.lawyer-profile__back + .lawyer-profile__back {
+  margin-top: 12px;
+}
+
+.lawyer-profile__areas {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.lawyer-profile__areas a {
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1px solid var(--color-navy);
+  color: var(--color-navy);
+  transition: background 0.2s, color 0.2s;
+}
+
+.lawyer-profile__areas a:hover,
+.lawyer-profile__areas a:focus-visible {
+  background: var(--color-navy);
+  color: var(--color-white);
 }
 
 .lawyer-profile__section {

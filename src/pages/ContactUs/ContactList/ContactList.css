@@ -1,0 +1,42 @@
+/* <address> is italic by default in browsers — keep the contact list upright. */
+.contact-list {
+  font-style: normal;
+}
+
+.contact-list ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-list li {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  align-items: start;
+  column-gap: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+/* Centre the 18px icon on the first 22.4px (1.6 × 14px) line of text. */
+.contact-list__icon {
+  margin-top: 2px;
+  color: var(--color-gold);
+}
+
+.contact-list a {
+  color: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+  overflow-wrap: anywhere;
+}
+
+.contact-list a:hover {
+  border-bottom-color: var(--color-gold);
+}
+
+.contact-list li > span {
+  min-width: 0;
+}

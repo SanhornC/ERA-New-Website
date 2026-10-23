@@ -1,5 +1,4 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 
 import Advantage from './pages/Advantage/Advantage'
@@ -26,43 +25,75 @@ import MLawyer from './pages/Team/team_components/MLawyer'
 import NotFound from './pages/NotFound/NotFound'
 import Privacy from './pages/Legal/Privacy'
 import Terms from './pages/Legal/Terms'
+import ServiceDetail from './pages/ServiceArea/ServiceDetail'
 import { ScrollRestoration, ScrollToTopButton } from './pages/ScrollToTop'
+import { servicePath, services } from './data/services'
+import RouteSeo from './seo/RouteSeo'
+import { INDEXABLE_ROUTES } from './seo/routes'
+
+const APP_ROUTES = [
+  { path: '/', component: Home },
+  { path: '/about', component: Advantage },
+  { path: '/services', component: ServiceArea },
+  ...services.map(({ slug }) => ({
+    path: servicePath(slug),
+    element: <ServiceDetail slug={slug} />,
+  })),
+  { path: '/team', component: Team },
+  { path: '/lawyer/1', component: MLawyer },
+  { path: '/lawyer/2', component: Lawyer_Wang },
+  { path: '/lawyer/3', component: Lawyer_Huang },
+  { path: '/related', component: Related },
+  { path: '/events', component: Events },
+  { path: '/events/1', component: Event1 },
+  { path: '/events/2', component: Event2 },
+  { path: '/events/3', component: Event3 },
+  { path: '/events/4', component: Event4 },
+  { path: '/events/5', component: Event5 },
+  { path: '/events/6', component: Event6 },
+  { path: '/events/7', component: Event7 },
+  { path: '/events/8', component: Event8 },
+  { path: '/events/9', component: Event9 },
+  { path: '/contactus', component: ContactUs },
+  { path: '/privacy', component: Privacy },
+  { path: '/terms', component: Terms },
+]
+
+const appRoutePaths = APP_ROUTES.map(({ path }) => path)
+const duplicateAppRoutes = appRoutePaths.filter((path, index) => appRoutePaths.indexOf(path) !== index)
+const missingSeoRoutes = appRoutePaths.filter((path) => !INDEXABLE_ROUTES.includes(path))
+const missingAppRoutes = INDEXABLE_ROUTES.filter((path) => !appRoutePaths.includes(path))
+
+if (duplicateAppRoutes.length > 0 || missingSeoRoutes.length > 0 || missingAppRoutes.length > 0) {
+  throw new Error(
+    `App/SEO route mismatch: duplicate App [${duplicateAppRoutes.join(', ')}]; missing SEO [${missingSeoRoutes.join(', ')}]; missing App [${missingAppRoutes.join(', ')}]`,
+  )
+}
+
+export const AppContent = () => (
+  <>
+    <ScrollRestoration />
+    <Navbar />
+    <main id="main-content">
+      <Routes>
+        {APP_ROUTES.map(({ path, component: Component, element }) => (
+          <Route key={path} path={path} element={element ?? <Component />} />
+        ))}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <RouteSeo />
+    </main>
+    <Footer />
+    <ScrollToTopButton />
+  </>
+)
 
 const App = () => {
   return (
     <HelmetProvider>
-      <Router>
-        <ScrollRestoration />
-        <Navbar />
-        <main id="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<Advantage />} />
-            <Route path="/services" element={<ServiceArea />} />
-            <Route path="/team" element={<Team />} />
-            <Route path="/lawyer/1" element={<MLawyer />} />
-            <Route path="/lawyer/2" element={<Lawyer_Wang />} />
-            <Route path="/lawyer/3" element={<Lawyer_Huang />} />
-            <Route path="/related" element={<Related />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/events/1" element={<Event1 />} />
-            <Route path="/events/2" element={<Event2 />} />
-            <Route path="/events/3" element={<Event3 />} />
-            <Route path="/events/4" element={<Event4 />} />
-            <Route path="/events/5" element={<Event5 />} />
-            <Route path="/events/6" element={<Event6 />} />
-            <Route path="/events/7" element={<Event7 />} />
-            <Route path="/events/8" element={<Event8 />} />
-            <Route path="/events/9" element={<Event9 />} />
-            <Route path="/contactus" element={<ContactUs />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-        <ScrollToTopButton />
-      </Router>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
     </HelmetProvider>
   )
 }

@@ -1,4 +1,3 @@
-import React from 'react'
 import './Adv_special.css'
 import trophy_img from '../../../assets/PIC/era-office/獎盃區.jpg'
 
@@ -11,12 +10,14 @@ const Adv_special = () => {
             src={trophy_img}
             alt="怡睿國際法律事務所獎盃區"
             className="adv-special__img"
+            width="2268"
+            height="4032"
             loading="lazy"
             decoding="async"
           />
         </div>
         <div className="adv-special__body">
-          <span className="section-label">Firm Distinction</span>
+          <span className="section-label" lang="en">Firm Distinction</span>
           <h2 className="section-title">怡睿國際法律事務所 — 特色</h2>
           <div className="section-divider" />
           <p className="adv-special__text">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useRef, useState } from 'react'
 import './Adv_record.css'
 
 const sections = [
@@ -6,7 +6,7 @@ const sections = [
     id: 1,
     title: '律師',
     goals: [
-      { value: '27年', description: '主持律師擁有長達27年的執業經驗' },
+      { value: '1997起', description: '主持律師自1997年起執業，累積深厚法律實務經驗' },
       { value: '創下司法紀錄', description: '處理併購案件之異議股東股份收買請求權案件，並創下司法紀錄', sub: 'https://www.businesstoday.com.tw/article/category/80395/post/201808080038/' },
     ],
   },
@@ -35,49 +35,81 @@ const sections = [
 
 const Adv_record = () => {
   const [currentSection, setCurrentSection] = useState(0)
+  const tabRefs = useRef([])
+
+  // Arrow keys / Home / End move between tabs (WAI-ARIA tabs pattern).
+  const handleTabKeyDown = (event, index) => {
+    const last = sections.length - 1
+    const next = {
+      ArrowRight: index === last ? 0 : index + 1,
+      ArrowLeft: index === 0 ? last : index - 1,
+      Home: 0,
+      End: last,
+    }[event.key]
+    if (next === undefined) return
+    event.preventDefault()
+    setCurrentSection(next)
+    tabRefs.current[next]?.focus()
+  }
 
   return (
     <section className="adv-record section" aria-labelledby="adv-record-heading">
       <div className="container">
         <div className="section-head--center">
-          <span className="section-label">Track Record</span>
+          <span className="section-label" lang="en">Track Record</span>
           <h2 className="section-title" id="adv-record-heading">本所實績</h2>
           <div className="section-divider section-divider--center" />
         </div>
 
-        <div className="adv-record__tabs" role="tablist">
+        <div className="adv-record__tabs" role="tablist" aria-label="本所實績分類">
           {sections.map((section, index) => (
             <button
               key={section.id}
+              id={`adv-record-tab-${section.id}`}
+              type="button"
               role="tab"
+              aria-controls={`adv-record-panel-${section.id}`}
               aria-selected={index === currentSection}
+              tabIndex={index === currentSection ? 0 : -1}
+              ref={(el) => { tabRefs.current[index] = el }}
               className={`adv-record__tab ${index === currentSection ? 'is-active' : ''}`}
               onClick={() => setCurrentSection(index)}
+              onKeyDown={(event) => handleTabKeyDown(event, index)}
             >
               {section.title}
             </button>
           ))}
         </div>
 
-        <div className="adv-record__grid" role="tabpanel">
-          {sections[currentSection].goals.map((goal, index) => (
-            <div className="adv-record__card" key={index}>
-              <div className="adv-record__value">{goal.value}</div>
-              <div className="adv-record__divider" aria-hidden="true" />
-              <p className="adv-record__desc">{goal.description}</p>
-              {goal.sub && (
-                <a
-                  className="adv-record__sub"
-                  href={goal.sub}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  新聞連結
-                </a>
-              )}
-            </div>
-          ))}
-        </div>
+        {sections.map((section, sectionIndex) => (
+          <div
+            id={`adv-record-panel-${section.id}`}
+            className="adv-record__grid"
+            role="tabpanel"
+            aria-labelledby={`adv-record-tab-${section.id}`}
+            hidden={sectionIndex !== currentSection}
+            tabIndex={0}
+            key={section.id}
+          >
+            {section.goals.map((goal) => (
+              <div className="adv-record__card" key={`${goal.value}-${goal.description}`}>
+                <div className="adv-record__value">{goal.value}</div>
+                <div className="adv-record__divider" aria-hidden="true" />
+                <p className="adv-record__desc">{goal.description}</p>
+                {goal.sub && (
+                  <a
+                    className="adv-record__sub"
+                    href={goal.sub}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    新聞連結
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </section>
   )

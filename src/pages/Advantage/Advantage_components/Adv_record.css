@@ -9,34 +9,54 @@
 .adv-record__tabs {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 56px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 48px;
+  border: 1px solid rgba(201, 168, 76, 0.5);
 }
 
 .adv-record__tab {
-  font-family: var(--font-sans);
-  font-size: var(--text-sm);
-  letter-spacing: var(--tracking-wider);
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.65);
-  padding: 12px 4px;
-  border-bottom: 2px solid transparent;
+  flex: 1 1 auto;
+  min-height: 48px;
+  padding: 12px 32px;
+  font-family: var(--font-serif-tc);
+  font-size: var(--text-base);
+  letter-spacing: var(--tracking-wide);
+  color: rgba(255, 255, 255, 0.78);
   background: transparent;
   cursor: pointer;
-  transition: color 0.25s, border-color 0.25s;
+  white-space: nowrap;
+  transition: color 0.25s, background 0.25s;
 }
 
-.adv-record__tab:hover { color: var(--color-white); }
+.adv-record__tab + .adv-record__tab {
+  border-left: 1px solid rgba(201, 168, 76, 0.5);
+}
+
+.adv-record__tab:hover {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.06);
+}
+
 .adv-record__tab.is-active {
-  color: var(--color-gold);
-  border-bottom-color: var(--color-gold);
+  color: var(--color-navy);
+  background: var(--color-gold);
+}
+
+.adv-record__tab:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: -4px;
 }
 
 .adv-record__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.adv-record__grid:focus-visible {
+  outline: 1px dashed rgba(201, 168, 76, 0.6);
+  outline-offset: 8px;
 }
 
 .adv-record__card {
@@ -88,7 +108,9 @@
 
 .adv-record__sub:hover { color: var(--color-gold-light); }
 
-@media (max-width: 768px) {
-  .adv-record__grid { grid-template-columns: 1fr; gap: 20px; }
+@media (max-width: 640px) {
+  .adv-record__tabs { width: 100%; }
+  .adv-record__tab { padding: 12px 8px; font-size: var(--text-sm); }
+  .adv-record__grid { grid-template-columns: 1fr; gap: 16px; }
   .adv-record__card { padding: 28px 20px; }
 }

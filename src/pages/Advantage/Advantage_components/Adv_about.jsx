@@ -1,4 +1,3 @@
-import React from 'react'
 import './Adv_about.css'
 
 const advantages = [
@@ -15,7 +14,7 @@ const Adv_about = () => {
     <section className="adv-about section" aria-labelledby="adv-about-heading">
       <div className="container">
         <div className="section-head--center">
-          <span className="section-label">Why ERA</span>
+          <span className="section-label" lang="en">Why ERA</span>
           <h2 className="section-title" id="adv-about-heading">我們的優勢</h2>
           <div className="section-divider section-divider--center" />
         </div>

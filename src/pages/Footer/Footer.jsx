@@ -1,7 +1,17 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import './Footer.css'
-import logo from '../../assets/era-official-logo.png'
+import Brand from '../Brand/Brand'
+import { firm, mapUrl } from '../../data/firm'
+import { getService, servicePath } from '../../data/services'
+
+const FOOTER_SERVICES = [
+  'contract-consulting',
+  'corporate-compliance',
+  'mergers-acquisitions',
+  'intellectual-property',
+  'trade-secrets',
+  'startup-legal-services',
+].map(getService)
 
 const Footer = () => {
   const year = new Date().getFullYear()
@@ -10,8 +20,8 @@ const Footer = () => {
     <footer className="site-footer" role="contentinfo">
       <div className="site-footer__inner container">
         <div className="site-footer__col site-footer__brand">
-          <Link to="/" aria-label="怡睿國際法律事務所 首頁">
-            <img src={logo} alt="怡睿國際法律事務所" className="site-footer__logo" />
+          <Link to="/" className="site-footer__brand-link" aria-label="怡睿國際法律事務所 首頁">
+            <Brand tone="light" />
           </Link>
           <p className="site-footer__tagline">
             專業、信賴、成就 — 為本土企業提供國際商業法律服務。
@@ -21,11 +31,10 @@ const Footer = () => {
         <div className="site-footer__col">
           <h3 className="site-footer__heading">服務領域</h3>
           <ul>
-            <li><Link to="/services">合約諮詢</Link></li>
-            <li><Link to="/services">智慧財產權</Link></li>
-            <li><Link to="/services">企業併購</Link></li>
-            <li><Link to="/services">新創公司法律服務</Link></li>
-            <li><Link to="/services">勞資法規諮詢</Link></li>
+            {FOOTER_SERVICES.map((service) => (
+              <li key={service.slug}><Link to={servicePath(service.slug)}>{service.name}</Link></li>
+            ))}
+            <li><Link to="/services">全部服務領域 →</Link></li>
           </ul>
         </div>
 
@@ -42,10 +51,16 @@ const Footer = () => {
         <div className="site-footer__col">
           <h3 className="site-footer__heading">聯絡資訊</h3>
           <address className="site-footer__address">
-            <p>302 新竹縣竹北市惟馨街95號10-3樓</p>
-            <p>(凱峰世紀科技中心)</p>
-            <p><a href="tel:+886-3-551-5533" lang="en">03-551-5533</a></p>
-            <p><a href="mailto:attorneys@eralawfirm.com" lang="en">attorneys@eralawfirm.com</a></p>
+            <p>{firm.address.postalCode} {firm.address.region}{firm.address.locality}{firm.address.street}</p>
+            <p>({firm.address.building})</p>
+            <p>電話 <a href={firm.phoneHref} lang="en">{firm.phone}</a></p>
+            <p>傳真 <span lang="en">{firm.fax}</span></p>
+            <p><a href={`mailto:${firm.email}`} lang="en">{firm.email}</a></p>
+            <p className="site-footer__links-inline">
+              <a href={mapUrl} target="_blank" rel="noopener noreferrer">Google 地圖</a>
+              <span aria-hidden="true">｜</span>
+              <a href={firm.facebook} target="_blank" rel="noopener noreferrer" lang="en">Facebook</a>
+            </p>
           </address>
         </div>
       </div>

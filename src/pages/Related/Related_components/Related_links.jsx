@@ -1,4 +1,3 @@
-import React from 'react'
 import './Related_links.css'
 
 const links = [
@@ -17,7 +16,7 @@ const Related_links = () => {
   return (
     <section className="related-links" aria-labelledby="related-links-heading">
       <div className="section-head--center">
-        <span className="section-label">Resources</span>
+        <span className="section-label" lang="en">Resources</span>
         <h2 className="section-title" id="related-links-heading">相關連結</h2>
         <div className="section-divider section-divider--center" />
       </div>
