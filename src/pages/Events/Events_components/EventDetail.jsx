@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import { displayDate } from '../../../data/events'
 import { getService, servicePath } from '../../../data/services'
 import './EventDetail.css'
 
-const EventDetail = ({ images, title, date, isoDate, relatedServices = [] }) => {
+const EventDetail = ({ event }) => {
+  const { images, title, isoDate, time, location, related = [] } = event
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const prevSlide = () => {
@@ -30,11 +32,11 @@ const EventDetail = ({ images, title, date, isoDate, relatedServices = [] }) => 
             <span className="section-label" lang="en">Event Record</span>
             <h1 className="event-detail__title">{title}</h1>
             <div className="event-detail__meta">
-              {date && (
-                <p className="event-detail__date">
-                  演講日期：<time dateTime={isoDate}>{date}</time>
-                </p>
-              )}
+              <p className="event-detail__date">
+                演講日期：<time dateTime={isoDate}>{displayDate(isoDate)}</time>
+              </p>
+              {time && <p>課程時間：{time}</p>}
+              {location && <p>地點：{location}</p>}
               <p>主講人：<Link to="/lawyer/1">林秀怡律師</Link></p>
             </div>
           </div>
@@ -86,11 +88,11 @@ const EventDetail = ({ images, title, date, isoDate, relatedServices = [] }) => 
             </div>
           )}
 
-          {relatedServices.length > 0 && (
+          {related.length > 0 && (
             <section className="event-detail__related" aria-labelledby="event-related-heading">
               <h2 id="event-related-heading">相關服務領域</h2>
               <ul>
-                {relatedServices.map(getService).map((service) => (
+                {related.map(getService).map((service) => (
                   <li key={service.slug}>
                     <Link to={servicePath(service.slug)}>
                       <span className="event-detail__related-name">{service.name}</span>
@@ -119,11 +121,14 @@ const eventImageShape = PropTypes.shape({
 })
 
 EventDetail.propTypes = {
-  images: PropTypes.arrayOf(eventImageShape).isRequired,
-  title: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  isoDate: PropTypes.string.isRequired,
-  relatedServices: PropTypes.arrayOf(PropTypes.string.isRequired),
+  event: PropTypes.shape({
+    images: PropTypes.arrayOf(eventImageShape).isRequired,
+    title: PropTypes.string.isRequired,
+    isoDate: PropTypes.string.isRequired,
+    time: PropTypes.string,
+    location: PropTypes.string,
+    related: PropTypes.arrayOf(PropTypes.string.isRequired),
+  }).isRequired,
 }
 
 export default EventDetail

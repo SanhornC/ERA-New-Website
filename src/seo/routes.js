@@ -1,5 +1,6 @@
 import socialImage from '../assets/PIC/era-office/凱峰辦公室招牌(正拍).jpg'
 import { firm, mapUrl } from '../data/firm'
+import { eventPages, eventPath } from '../data/events'
 import { servicePath, services } from '../data/services'
 
 export const SITE_NAME = firm.name
@@ -110,6 +111,16 @@ const SERVICE_ROUTE_SEO = Object.fromEntries(services.map((service) => [
 ]))
 
 const eventParent = { label: '活動資訊', path: '/events' }
+
+const EVENT_ROUTE_SEO = Object.fromEntries(eventPages.map((event) => [
+  eventPath(event.id),
+  {
+    title: pageTitle(event.shortTitle),
+    description: event.description,
+    breadcrumbLabel: event.shortTitle,
+    breadcrumbParent: eventParent,
+  },
+]))
 const teamParent = { label: '專業團隊', path: '/team' }
 
 export const ROUTE_SEO = {
@@ -161,60 +172,7 @@ export const ROUTE_SEO = {
     description: '林秀怡律師歷年受邀於新竹科學園區、工研院、陽明交大校友會等單位，主講合約談判、企業併購、新創公司法律與專利佈局等講座之紀錄。',
     breadcrumbLabel: '活動資訊',
   },
-  '/events/1': {
-    title: pageTitle('合約談判之技巧分享'),
-    description: '新竹科學園區新興產業專題技術人才培訓計畫 — 合約談判之技巧分享：從保密、採購、經銷代理等合約談起，林秀怡律師主講，2023/10/9。',
-    breadcrumbLabel: '合約談判之技巧分享',
-    breadcrumbParent: eventParent,
-  },
-  '/events/2': {
-    title: pageTitle('科技公司相提「併」論'),
-    description: '科技公司相提「併」論 — 從企業併購法有關保護股東權益之修正談起，新竹科學園區人才培訓計畫，林秀怡律師主講，2023/10/4。',
-    breadcrumbLabel: '科技公司相提「併」論',
-    breadcrumbParent: eventParent,
-  },
-  '/events/3': {
-    title: pageTitle('陽明交大 178Club 科技法律講座'),
-    description: '陽明交大校友會工商經營 178Club 總裁思維讀書會科技法律講座與商務交流活動，林秀怡律師主講，2023/4/25。',
-    breadcrumbLabel: '陽明交大 178Club 科技法律講座',
-    breadcrumbParent: eventParent,
-  },
-  '/events/4': {
-    title: pageTitle('凱峰保密合約演講'),
-    description: '凱峰保密合約演講紀錄，林秀怡律師主講，2023/3/8。',
-    breadcrumbLabel: '凱峰保密合約演講',
-    breadcrumbParent: eventParent,
-  },
-  '/events/5': {
-    title: pageTitle('合約常見之實務問題'),
-    description: '新竹市室內裝修商業同業公會演講 — 合約常見之實務問題，林秀怡律師主講，2021/11/24。',
-    breadcrumbLabel: '合約常見之實務問題',
-    breadcrumbParent: eventParent,
-  },
-  '/events/6': {
-    title: pageTitle('新創公司必知的議題'),
-    description: '「新創公司必知的議題」法律講座紀錄，林秀怡律師主講，2021/9/7。',
-    breadcrumbLabel: '新創公司必知的議題',
-    breadcrumbParent: eventParent,
-  },
-  '/events/7': {
-    title: pageTitle('新創企業的專利佈局與法律議題'),
-    description: '前瞻科技 — 新創企業的專利佈局與法律議題講座紀錄，林秀怡律師主講，2021/6/28。',
-    breadcrumbLabel: '新創企業的專利佈局與法律議題',
-    breadcrumbParent: eventParent,
-  },
-  '/events/8': {
-    title: pageTitle('從就業到創業的普通法律常識'),
-    description: '交大新竹校友會互貴幫分享會 — 從就業到創業的普通法律常識，林秀怡律師主講，2020/10/29。',
-    breadcrumbLabel: '從就業到創業的普通法律常識',
-    breadcrumbParent: eventParent,
-  },
-  '/events/9': {
-    title: pageTitle('新創相關法律案件分享'),
-    description: '工研院營運發展處分享研討會 — 新創相關法律案件分享，林秀怡律師主講，2020/3/24。',
-    breadcrumbLabel: '新創相關法律案件分享',
-    breadcrumbParent: eventParent,
-  },
+  ...EVENT_ROUTE_SEO,
   '/contactus': {
     title: pageTitle('聯絡我們｜竹北律師事務所地址、電話與預約諮詢'),
     description: `怡睿國際法律事務所位於${firm.address.region}${firm.address.locality}${firm.address.street}（${firm.address.building}），電話 ${firm.phone}，電子信箱 ${firm.email}，歡迎來電或線上預約法律諮詢。`,

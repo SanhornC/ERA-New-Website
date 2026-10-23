@@ -4,15 +4,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import Advantage from './pages/Advantage/Advantage'
 import ContactUs from './pages/ContactUs/ContactUs'
 import Events from './pages/Events/Events'
-import Event1 from './pages/Events/Events_components/Event1'
-import Event2 from './pages/Events/Events_components/Event2'
-import Event3 from './pages/Events/Events_components/Event3'
-import Event4 from './pages/Events/Events_components/Event4'
-import Event5 from './pages/Events/Events_components/Event5'
-import Event6 from './pages/Events/Events_components/Event6'
-import Event7 from './pages/Events/Events_components/Event7'
-import Event8 from './pages/Events/Events_components/Event8'
-import Event9 from './pages/Events/Events_components/Event9'
+import EventDetail from './pages/Events/Events_components/EventDetail'
 import Footer from './pages/Footer/Footer'
 import Home from './pages/Home/Home'
 import Navbar from './pages/Navbar'
@@ -27,6 +19,7 @@ import Privacy from './pages/Legal/Privacy'
 import Terms from './pages/Legal/Terms'
 import ServiceDetail from './pages/ServiceArea/ServiceDetail'
 import { ScrollRestoration, ScrollToTopButton } from './pages/ScrollToTop'
+import { eventPages, eventPath } from './data/events'
 import { servicePath, services } from './data/services'
 import RouteSeo from './seo/RouteSeo'
 import { INDEXABLE_ROUTES } from './seo/routes'
@@ -45,15 +38,10 @@ const APP_ROUTES = [
   { path: '/lawyer/3', component: Lawyer_Huang },
   { path: '/related', component: Related },
   { path: '/events', component: Events },
-  { path: '/events/1', component: Event1 },
-  { path: '/events/2', component: Event2 },
-  { path: '/events/3', component: Event3 },
-  { path: '/events/4', component: Event4 },
-  { path: '/events/5', component: Event5 },
-  { path: '/events/6', component: Event6 },
-  { path: '/events/7', component: Event7 },
-  { path: '/events/8', component: Event8 },
-  { path: '/events/9', component: Event9 },
+  ...eventPages.map((event) => ({
+    path: eventPath(event.id),
+    element: <EventDetail event={event} />,
+  })),
   { path: '/contactus', component: ContactUs },
   { path: '/privacy', component: Privacy },
   { path: '/terms', component: Terms },

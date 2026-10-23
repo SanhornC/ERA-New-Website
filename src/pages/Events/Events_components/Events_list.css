@@ -22,6 +22,16 @@
   padding-left: 16px;
 }
 
+/* Events without photos have no page, so their row is not a link */
+.event-row--static:hover {
+  background: none;
+  padding-left: 8px;
+}
+
+.event-row--static:hover .event-row__title {
+  color: var(--color-charcoal);
+}
+
 .event-row__date {
   font-family: var(--font-sans);
   font-size: var(--text-sm);
