@@ -1,20 +1,27 @@
 import './P1_About.css'
-import about_img from '../../../assets/about.png'
+import about_img from '../../../assets/capital-market-award.webp'
 
 const P1_About = () => {
   return (
     <div className="about">
-      <div className="about-media">
-        <img
-          src={about_img}
-          alt="怡睿國際法律事務所 — 林秀怡主持律師"
-          className="about-img"
-          width="224"
-          height="300"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
+      <figure className="about-media about-award">
+        <div className="about-award__stage">
+          <img
+            src={about_img}
+            alt="臺灣證券交易所 113年度資本市場貢獻獎獎座"
+            className="about-award__img"
+            width="343"
+            height="840"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <figcaption className="about-award__caption">
+          <span className="about-award__label" lang="en">Award · 2024</span>
+          <strong className="about-award__title">資本市場貢獻獎</strong>
+          <span className="about-award__issuer">臺灣證券交易所頒發｜113 年度</span>
+        </figcaption>
+      </figure>
       <div className="about-body">
         <h3 className="about-eyebrow">怡睿國際法律事務所</h3>
         <h2 className="about-headline">專業、信賴、成就</h2>
